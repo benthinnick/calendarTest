@@ -2,7 +2,7 @@ package com.example.calendar.domain;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "calendar_event")
@@ -18,7 +18,7 @@ public class Event {
     private String description;
 
     @Column
-    private Date eventDate;
+    private LocalDate eventDate;
 
     @Column
     private String username;
@@ -47,11 +47,11 @@ public class Event {
         this.description = description;
     }
 
-    public Date getEventDate() {
+    public LocalDate getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(LocalDate eventDate) {
         this.eventDate = eventDate;
     }
 
