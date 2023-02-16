@@ -1,7 +1,6 @@
 package com.example.calendar.domain;
 
 import jakarta.persistence.*;
-import org.springframework.security.core.userdetails.User;
 
 import java.sql.Date;
 
@@ -9,6 +8,7 @@ import java.sql.Date;
 @Table(name = "calendar_event")
 public class Event {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column
@@ -21,7 +21,7 @@ public class Event {
     private Date eventDate;
 
     @Column
-    private User user;
+    private String username;
 
     public Long getId() {
         return id;
@@ -55,11 +55,11 @@ public class Event {
         this.eventDate = eventDate;
     }
 
-    public User getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsername(String user) {
+        this.username = user;
     }
 }
