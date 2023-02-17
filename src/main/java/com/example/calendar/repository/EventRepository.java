@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface EventRepository extends PagingAndSortingRepository<Event, Long>, JpaRepository<Event, Long> {
-    List<Event> findAllByEventDateAndUsername(LocalDate date, String username);
+    List<Event> findAllByEventDateAndUser(LocalDate date, Long userId);
 
-    Page<Event> getAllByUsernameOrderByEventDateAsc(String username, Pageable pageable);
+    Page<Event> getAllByUserOrderByEventDateAsc(Long userId, Pageable pageable);
 }

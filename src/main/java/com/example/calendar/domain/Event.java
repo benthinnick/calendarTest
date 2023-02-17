@@ -20,8 +20,8 @@ public class Event {
     @Column
     private LocalDate eventDate;
 
-    @Column
-    private String username;
+    @Column(name = "user_id")
+    private Long user;
 
     public Long getId() {
         return id;
@@ -55,11 +55,11 @@ public class Event {
         this.eventDate = eventDate;
     }
 
-    public String getUsername() {
-        return username;
+    public Long getUser() {
+        return user;
     }
 
-    public void setUsername(String user) {
-        this.username = user;
+    public void setUser(Long user) {
+        this.user = user;
     }
 }
