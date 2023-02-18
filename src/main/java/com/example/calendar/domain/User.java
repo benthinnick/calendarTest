@@ -1,5 +1,6 @@
 package com.example.calendar.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,7 +8,7 @@ import jakarta.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column
     private String name;
@@ -17,15 +18,16 @@ public class User {
     @Column(unique = true)
     private String email;
 
+
     private String password;
 
     private String role;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,6 +47,7 @@ public class User {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getEmail() {
         return email;
     }
@@ -53,6 +56,7 @@ public class User {
         this.email = email;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

@@ -1,5 +1,6 @@
 package com.example.calendar.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -20,8 +21,10 @@ public class Event {
     @Column
     private LocalDate eventDate;
 
-    @Column(name = "user_id")
-    private Long user;
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    @JsonIgnore
+    private Calendar calendar;
 
     public Long getId() {
         return id;
@@ -55,11 +58,11 @@ public class Event {
         this.eventDate = eventDate;
     }
 
-    public Long getUser() {
-        return user;
+    public Calendar getCalendar() {
+        return calendar;
     }
 
-    public void setUser(Long user) {
-        this.user = user;
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.calendar.repository;
 
+import com.example.calendar.domain.Calendar;
 import com.example.calendar.domain.Event;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface EventRepository extends PagingAndSortingRepository<Event, Long>, JpaRepository<Event, Long> {
-    List<Event> findAllByEventDateAndUser(LocalDate date, Long userId);
+    List<Event> findAllByEventDateAndCalendar(LocalDate date, Calendar calendar);
 
-    Page<Event> getAllByUserOrderByEventDateAsc(Long userId, Pageable pageable);
+    Page<Event> getAllByCalendarOrderByEventDateAsc(Calendar user, Pageable pageable);
 }
